@@ -15,6 +15,7 @@
 		4D6B7ACC1F0C6D8B00FE25F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6B7ACB1F0C6D8B00FE25F3 /* Assets.xcassets */; };
 		4D6B7ACF1F0C6D8B00FE25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6B7ACD1F0C6D8B00FE25F3 /* Main.storyboard */; };
 		4D6B7AD81F0C6DC700FE25F3 /* JumpUnderPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */; };
+		4D6B7ADA1F0C708E00FE25F3 /* BitMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4D6B7ACE1F0C6D8B00FE25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D6B7AD01F0C6D8B00FE25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpUnderPlatform.swift; sourceTree = "<group>"; };
+		4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitMasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				4D6B7AC31F0C6D8B00FE25F3 /* GameScene.sks */,
 				4D6B7AC71F0C6D8B00FE25F3 /* GameScene.swift */,
 				4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */,
+				4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */,
 			);
 			path = JumpUnderPlatform;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				4D6B7ACA1F0C6D8B00FE25F3 /* ViewController.swift in Sources */,
 				4D6B7AD81F0C6DC700FE25F3 /* JumpUnderPlatform.swift in Sources */,
+				4D6B7ADA1F0C708E00FE25F3 /* BitMasks.swift in Sources */,
 				4D6B7AC81F0C6D8B00FE25F3 /* GameScene.swift in Sources */,
 				4D6B7AC21F0C6D8B00FE25F3 /* AppDelegate.swift in Sources */,
 			);
@@ -310,6 +314,7 @@
 				4D6B7AD51F0C6D8B00FE25F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

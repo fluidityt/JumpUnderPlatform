@@ -9,84 +9,98 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+// Props:
+class GameScene: SKScene, SKPhysicsContactDelegate {
+
+  lazy private(set) var player: Player = {
+    $0.makePB()
+    $0.position.y -= 200
+    return $0
+  }(Player(color: .blue, size: CGSize(width: 50, height: 50)))
+
+}
+
+// Randos:
+extension GameScene {
+  
+  // Testing purposes:
+  func getJup() -> JumpUnderPlatform {
+     return childNode(withName: "jup")! as! JumpUnderPlatform
+  }
+  
+  // Scene setup:
+  override func didMove(to view: SKView) {
+    physicsWorld.contactDelegate = self
+    physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+    addChild(player)
+  }
+}
+
+// Game loop:
+extension GameScene {
+  
+  // Touch handling:
+  override func mouseDown(with event: NSEvent) {
+    guard let playerPB = player.physicsBody else { fatalError() }
+    playerPB.applyImpulse(CGVector(dx: 0, dy: 50))
+  }
+  
+  override func update(_ currentTime: TimeInterval) {
+    player._update()
+  }
+  
+  func didBegin(_ contact: SKPhysicsContact) {
+    self._didBegin(contact) // Defined below :(
+  }
+  
+  override func didSimulatePhysics() {
+    player._didSimulatePhysics()
+  }
+  
+  override func didFinishUpdate() {
+    let platform = getJup()
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
-    override func didMove(to view: SKView) {
-        
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+    if player.isUnderPlatform(platform) == false {
+      print("resetting")
+      player.flag_isPassThrough = false
+      platform.flag_isPassThrough = false
     }
     
+    player._didFinishUpdate()
+    getJup()._didFinishUpdate()
+  }
+}
+
+
+
+// MARK: - Physics handling:
+extension GameScene {
+  
+  func _didBegin(_ contact: SKPhysicsContact) {
     
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
+    if player.hitThisFrame { return }
+    
+    player.hitThisFrame = true
+    
+    let platform = getJup()
+    
+    if player.isUnderPlatform(platform) {
+      
+      // Let play pass through:
+      player.flag_isPassThrough = true
+      platform.flag_isPassThrough = true
+      player.physicsBody!.collisionBitMask = UInt32(0)
+      platform.physicsBody!.collisionBitMask = UInt32(0)
+      
+      // Set speed to go higher:
+      player.physicsBody!.velocity = player.startingVelocity
     }
     
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
+    else {
+      // Is this secondary check unnecessary?
+      player.flag_isPassThrough = false
+      platform.flag_isPassThrough = false
     }
     
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        self.touchDown(atPoint: event.location(in: self))
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        self.touchMoved(toPoint: event.location(in: self))
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        self.touchUp(atPoint: event.location(in: self))
-    }
-    
-    override func keyDown(with event: NSEvent) {
-        switch event.keyCode {
-        case 0x31:
-            if let label = self.label {
-                label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-            }
-        default:
-            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
-        }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
+  }
 }
