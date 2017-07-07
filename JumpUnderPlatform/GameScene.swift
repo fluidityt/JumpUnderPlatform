@@ -1,31 +1,28 @@
 //
 //  GameScene.swift
-//  JumpUnderPlatform
-//
-//  Created by justin fluidity on 7/4/17.
-//  Copyright © 2017 justin fluidity. All rights reserved.
-//
 
 import SpriteKit
 import GameplayKit
 
-// Props:
+// MARK: - Props:
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
-  lazy private(set) var player: Player = {
-    $0.makePB()
-    $0.position.y -= 200
-    return $0
-  }(Player(color: .blue, size: CGSize(width: 50, height: 50)))
+  let jupName = "jup"
+  
+  let player = Player.makePlayer()
 
+
+  var contactedPlatform: JumpUnderPlatform?
+  
 }
 
-// Randos:
+// MARK: - Funky:
 extension GameScene {
   
   // Testing purposes:
+
   func getJup() -> JumpUnderPlatform {
-     return childNode(withName: "jup")! as! JumpUnderPlatform
+     return childNode(withName: jupName)! as! JumpUnderPlatform
   }
   
   // Scene setup:
@@ -36,71 +33,64 @@ extension GameScene {
   }
 }
 
-// Game loop:
-extension GameScene {
-  
-  // Touch handling:
-  override func mouseDown(with event: NSEvent) {
-    guard let playerPB = player.physicsBody else { fatalError() }
-    playerPB.applyImpulse(CGVector(dx: 0, dy: 50))
-  }
-  
-  override func update(_ currentTime: TimeInterval) {
-    player._update()
-  }
-  
-  func didBegin(_ contact: SKPhysicsContact) {
-    self._didBegin(contact) // Defined below :(
-  }
-  
-  override func didSimulatePhysics() {
-    player._didSimulatePhysics()
-  }
-  
-  override func didFinishUpdate() {
-    let platform = getJup()
-    
-    if player.isUnderPlatform(platform) == false {
-      print("resetting")
-      player.flag_isPassThrough = false
-      platform.flag_isPassThrough = false
-    }
-    
-    player._didFinishUpdate()
-    getJup()._didFinishUpdate()
-  }
-}
-
-
 
 // MARK: - Physics handling:
 extension GameScene {
   
+  private func findJup(contact: SKPhysicsContact) -> JumpUnderPlatform? {
+    guard let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node else { fatalError() }
+    
+    if      nodeA.name == jupName { return (nodeA as! JumpUnderPlatform) }
+    else if nodeB.name == jupName { return (nodeB as! JumpUnderPlatform) }
+    else                          { return nil }
+  }
+  
+  // Player is 2, platform is 4:
+  private func doContactPlayer_X_Jup(platform: JumpUnderPlatform) {
+    
+    // Check if jumping; if not, then just land on platform normally.
+    guard player.initialDY > 0 else { return }
+
+    // platform.physicsBody!.collisionBitMask = BitMasks.jupCategory
+    player.physicsBody!.collisionBitMask = BitMasks.playerCategory
+    player.platformToPassThrough = platform
+  }
+  
   func _didBegin(_ contact: SKPhysicsContact) {
+  
+    let contactedSum = contact.bodyA.categoryBitMask + contact.bodyB.categoryBitMask
     
-    if player.hitThisFrame { return }
+    switch contactedSum {
     
-    player.hitThisFrame = true
-    
-    let platform = getJup()
-    
-    if player.isUnderPlatform(platform) {
+    case BitMasks.jupCategory + BitMasks.playerCategory:
+      guard let platform = findJup(contact: contact) else { fatalError("must be platform!") }
+      doContactPlayer_X_Jup(platform: platform)
       
-      // Let play pass through:
-      player.flag_isPassThrough = true
-      platform.flag_isPassThrough = true
-      player.physicsBody!.collisionBitMask = UInt32(0)
-      platform.physicsBody!.collisionBitMask = UInt32(0)
-      
-      // Set speed to go higher:
-      player.physicsBody!.velocity = player.startingVelocity
+    default: ()
     }
-    
-    else {
-      // Is this secondary check unnecessary?
-      player.flag_isPassThrough = false
-      platform.flag_isPassThrough = false
-    }
-    
   }
 }
+
+// MARK: - Game loop:
+extension GameScene {
+  
+  // Touch handling:
+  override func mouseDown(with event: NSEvent) {
+    player.pb.applyImpulse(CGVector(dx: 0, dy: 50))
+  }
+  
+  override func update(_ currentTime: TimeInterval) {
+    player._update() // Updates initialDY
+  }
+  
+  func didBegin(_ contact: SKPhysicsContact) {
+    self._didBegin(contact)
+  }
+  
+  override func didFinishUpdate() {
+    player._didFinishUpdate()
+  }
+}
+
+
+

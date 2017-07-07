@@ -5,91 +5,61 @@ import SpriteKit
   
 class JumpUnderPlatform: SKSpriteNode {
 
-  var zip: Int
+  var pb: SKPhysicsBody { return self.physicsBody! } // If you see this on a crash, then WHY DOES JUP NOT HAVE A PB??
   
-  var flag_isPassThrough = false
-  
-  required init?(coder aDecoder: NSCoder) {
-    zip = 45
-    super.init(coder: aDecoder)
-  }
-  
-  func _didFinishUpdate() {
-    if flag_isPassThrough == false {
-      physicsBody!.collisionBitMask = BitMasks.jupCategory
-    }
-  }
-  
-  private func assignPB() {
-    
-    //let pb = SKPhysicsBody(rectangleOf: self.size)
-    // pb.categoryBitMask = BitMasks.jupCategory
-    //pb.contactTestBitMask = BitMasks.playerCategory
-    //pb.affectedByGravity = true
-    //pb.isDynamic = true
-    
-    //self.physicsBody = pb
-    //self.physicsBody?.affectedByGravity = false
-    
-    self.physicsBody = SKPhysicsBody(rectangleOf: self.size)
-    
-    super.color = .gray
-    
-    assert(self.physicsBody != nil)
-    print("successfully added new pb")
-  }
+  required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
   
 }
 
 class Player: SKSpriteNode {
+
+  var pb: SKPhysicsBody { return self.physicsBody! } // If you see this on a crash, then WHY DOES PLAYER NOT HAVE A PB??
+
+  weak var platformToPassThrough: JumpUnderPlatform?
   
-  // New data at start of update. Used for proper "under platform" detection
-  var startingLocation = CGPoint()
-  var startingVelocity = CGVector()
+  var initialDY = CGFloat(0)
   
-  var flag_isPassThrough = false
-  
-  var hitThisFrame = false
-  
-  func makePB() {
-    let pb = SKPhysicsBody(rectangleOf: self.size)
-    pb.categoryBitMask = BitMasks.playerCategory
-    pb.collisionBitMask = BitMasks.playerCategory
-    pb.usesPreciseCollisionDetection = true
-    physicsBody = pb
+}
+
+// MARK: - Funkys:
+extension Player {
+  static func makePlayer() -> Player {
+    let newPlayer = Player(color: .blue, size: CGSize(width: 50, height: 50))
+    let newPB = SKPhysicsBody(rectangleOf: newPlayer.size)
+    
+    newPB.categoryBitMask = BitMasks.playerCategory
+    newPB.usesPreciseCollisionDetection = true
+    
+    newPlayer.physicsBody = newPB
+    newPlayer.position.y -= 200
+    
+    return newPlayer
   }
-  
-  func isUnderPlatform(_ platform: SKSpriteNode) -> Bool {
-    if startingLocation.y < platform.position.y {
-      return true
+
+  func isOnTopOfPlatform() -> Bool {
+   guard let platform = platformToPassThrough else { fatalError("wtf is the platform!") }
+    
+    if frame.minY > platform.frame.maxY { return true
     } else { return false }
   }
-  
+}
+
+// MARK: - Player GameLoop:
+extension Player {
+
   func _update() {
-    startingLocation = position
-    startingVelocity = physicsBody!.velocity
-  }
-  
-  func _didSimulatePhysics() {
+    initialDY = pb.velocity.dy
   }
   
   func _didFinishUpdate() {
-    hitThisFrame = false
     
-    if flag_isPassThrough == false {
-      physicsBody!.collisionBitMask = BitMasks.jupCategory
+    if platformToPassThrough != nil {
+      if isOnTopOfPlatform() {
+        print("resetting!")
+        platformToPassThrough = nil
+        pb.collisionBitMask = BitMasks.jupCategory
+      }
     }
-  }
-  
-  // // // YAGNI funcs? // // //
-  func snapToPlatform(platform: SKSpriteNode) {
-    physicsBody = nil
-    position.y = platform.frame.maxY + (size.height/2) + 1
-    makePB()
-  }
-  
-  func passThroughPlatform() {
-    
   }
 }
 
