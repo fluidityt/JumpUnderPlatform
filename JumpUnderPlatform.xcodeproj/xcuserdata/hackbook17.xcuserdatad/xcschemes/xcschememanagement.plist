@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>JUPiOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 		<key>JumpUnderPlatform.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>4D6B7ABD1F0C6D8B00FE25F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DFCD75B1F10BECE00F3324D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

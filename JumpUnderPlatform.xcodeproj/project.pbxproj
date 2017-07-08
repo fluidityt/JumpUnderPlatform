@@ -16,26 +16,50 @@
 		4D6B7ACF1F0C6D8B00FE25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6B7ACD1F0C6D8B00FE25F3 /* Main.storyboard */; };
 		4D6B7AD81F0C6DC700FE25F3 /* JumpUnderPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */; };
 		4D6B7ADA1F0C708E00FE25F3 /* BitMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */; };
+		4DFCD75F1F10BECE00F3324D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCD75E1F10BECE00F3324D /* AppDelegate.swift */; };
+		4DFCD7671F10BECE00F3324D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFCD7661F10BECE00F3324D /* GameViewController.swift */; };
+		4DFCD76A1F10BECE00F3324D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFCD7681F10BECE00F3324D /* Main.storyboard */; };
+		4DFCD76C1F10BECE00F3324D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFCD76B1F10BECE00F3324D /* Assets.xcassets */; };
+		4DFCD76F1F10BECE00F3324D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFCD76D1F10BECE00F3324D /* LaunchScreen.storyboard */; };
+		4DFCD7741F10BF3600F3324D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D6B7AC31F0C6D8B00FE25F3 /* GameScene.sks */; };
+		4DFCD7751F10BF3900F3324D /* BitMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */; };
+		4DFCD7761F10BF3D00F3324D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AC71F0C6D8B00FE25F3 /* GameScene.swift */; };
+		4DFCD7771F10BF4000F3324D /* JumpUnderPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */; };
+		4DFCD7781F10BF4400F3324D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFEC1931F0F56270046150B /* Player.swift */; };
 		4DFEC1941F0F56270046150B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFEC1931F0F56270046150B /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D6B7ABE1F0C6D8B00FE25F3 /* JumpUnderPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpUnderPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6B7AC11F0C6D8B00FE25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D6B7AC31F0C6D8B00FE25F3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		4D6B7AC31F0C6D8B00FE25F3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = JumpUnderPlatform/GameScene.sks; sourceTree = "<group>"; };
 		4D6B7AC51F0C6D8B00FE25F3 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		4D6B7AC71F0C6D8B00FE25F3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		4D6B7AC71F0C6D8B00FE25F3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = JumpUnderPlatform/GameScene.swift; sourceTree = "<group>"; };
 		4D6B7AC91F0C6D8B00FE25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4D6B7ACB1F0C6D8B00FE25F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D6B7ACE1F0C6D8B00FE25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D6B7AD01F0C6D8B00FE25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpUnderPlatform.swift; sourceTree = "<group>"; };
-		4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitMasks.swift; sourceTree = "<group>"; };
-		4DFEC1931F0F56270046150B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JumpUnderPlatform.swift; path = JumpUnderPlatform/JumpUnderPlatform.swift; sourceTree = "<group>"; };
+		4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BitMasks.swift; path = JumpUnderPlatform/BitMasks.swift; sourceTree = "<group>"; };
+		4DFCD75C1F10BECE00F3324D /* JUPiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUPiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DFCD75E1F10BECE00F3324D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4DFCD7661F10BECE00F3324D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		4DFCD7691F10BECE00F3324D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4DFCD76B1F10BECE00F3324D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DFCD76E1F10BECE00F3324D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4DFCD7701F10BECE00F3324D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFEC1931F0F56270046150B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = JumpUnderPlatform/Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4D6B7ABB1F0C6D8B00FE25F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DFCD7591F10BECE00F3324D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,7 +72,9 @@
 		4D6B7AB51F0C6D8B00FE25F3 = {
 			isa = PBXGroup;
 			children = (
+				4DFCD77A1F10BF6900F3324D /* Shared */,
 				4D6B7AC01F0C6D8B00FE25F3 /* JumpUnderPlatform */,
+				4DFCD75D1F10BECE00F3324D /* JUPiOS */,
 				4D6B7ABF1F0C6D8B00FE25F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4D6B7ABE1F0C6D8B00FE25F3 /* JumpUnderPlatform.app */,
+				4DFCD75C1F10BECE00F3324D /* JUPiOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,11 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				4D6B7AD61F0C6DBA00FE25F3 /* junk */,
-				4D6B7AC31F0C6D8B00FE25F3 /* GameScene.sks */,
-				4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */,
-				4D6B7AC71F0C6D8B00FE25F3 /* GameScene.swift */,
-				4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */,
-				4DFEC1931F0F56270046150B /* Player.swift */,
 			);
 			path = JumpUnderPlatform;
 			sourceTree = "<group>";
@@ -85,6 +107,39 @@
 				4D6B7AD01F0C6D8B00FE25F3 /* Info.plist */,
 			);
 			name = junk;
+			sourceTree = "<group>";
+		};
+		4DFCD75D1F10BECE00F3324D /* JUPiOS */ = {
+			isa = PBXGroup;
+			children = (
+				4DFCD7791F10BF6100F3324D /* junk */,
+			);
+			path = JUPiOS;
+			sourceTree = "<group>";
+		};
+		4DFCD7791F10BF6100F3324D /* junk */ = {
+			isa = PBXGroup;
+			children = (
+				4DFCD75E1F10BECE00F3324D /* AppDelegate.swift */,
+				4DFCD7661F10BECE00F3324D /* GameViewController.swift */,
+				4DFCD7681F10BECE00F3324D /* Main.storyboard */,
+				4DFCD76B1F10BECE00F3324D /* Assets.xcassets */,
+				4DFCD76D1F10BECE00F3324D /* LaunchScreen.storyboard */,
+				4DFCD7701F10BECE00F3324D /* Info.plist */,
+			);
+			name = junk;
+			sourceTree = "<group>";
+		};
+		4DFCD77A1F10BF6900F3324D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4D6B7AC31F0C6D8B00FE25F3 /* GameScene.sks */,
+				4D6B7AD91F0C708E00FE25F3 /* BitMasks.swift */,
+				4D6B7AC71F0C6D8B00FE25F3 /* GameScene.swift */,
+				4D6B7AD71F0C6DC700FE25F3 /* JumpUnderPlatform.swift */,
+				4DFEC1931F0F56270046150B /* Player.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +162,23 @@
 			productReference = 4D6B7ABE1F0C6D8B00FE25F3 /* JumpUnderPlatform.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4DFCD75B1F10BECE00F3324D /* JUPiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DFCD7731F10BECE00F3324D /* Build configuration list for PBXNativeTarget "JUPiOS" */;
+			buildPhases = (
+				4DFCD7581F10BECE00F3324D /* Sources */,
+				4DFCD7591F10BECE00F3324D /* Frameworks */,
+				4DFCD75A1F10BECE00F3324D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JUPiOS;
+			productName = JUPiOS;
+			productReference = 4DFCD75C1F10BECE00F3324D /* JUPiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -118,6 +190,10 @@
 				ORGANIZATIONNAME = "justin fluidity";
 				TargetAttributes = {
 					4D6B7ABD1F0C6D8B00FE25F3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					4DFCD75B1F10BECE00F3324D = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -137,6 +213,7 @@
 			projectRoot = "";
 			targets = (
 				4D6B7ABD1F0C6D8B00FE25F3 /* JumpUnderPlatform */,
+				4DFCD75B1F10BECE00F3324D /* JUPiOS */,
 			);
 		};
 /* End PBXProject section */
@@ -150,6 +227,17 @@
 				4D6B7ACC1F0C6D8B00FE25F3 /* Assets.xcassets in Resources */,
 				4D6B7AC61F0C6D8B00FE25F3 /* Actions.sks in Resources */,
 				4D6B7ACF1F0C6D8B00FE25F3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DFCD75A1F10BECE00F3324D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DFCD76A1F10BECE00F3324D /* Main.storyboard in Resources */,
+				4DFCD76C1F10BECE00F3324D /* Assets.xcassets in Resources */,
+				4DFCD76F1F10BECE00F3324D /* LaunchScreen.storyboard in Resources */,
+				4DFCD7741F10BF3600F3324D /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +257,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DFCD7581F10BECE00F3324D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DFCD7761F10BF3D00F3324D /* GameScene.swift in Sources */,
+				4DFCD7671F10BECE00F3324D /* GameViewController.swift in Sources */,
+				4DFCD75F1F10BECE00F3324D /* AppDelegate.swift in Sources */,
+				4DFCD7781F10BF4400F3324D /* Player.swift in Sources */,
+				4DFCD7751F10BF3900F3324D /* BitMasks.swift in Sources */,
+				4DFCD7771F10BF4000F3324D /* JumpUnderPlatform.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -178,6 +279,22 @@
 				4D6B7ACE1F0C6D8B00FE25F3 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DFCD7681F10BECE00F3324D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DFCD7691F10BECE00F3324D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DFCD76D1F10BECE00F3324D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DFCD76E1F10BECE00F3324D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -299,6 +416,39 @@
 			};
 			name = Release;
 		};
+		4DFCD7711F10BECE00F3324D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = JUPiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zigg.JUPiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DFCD7721F10BECE00F3324D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = JUPiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zigg.JUPiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +469,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4DFCD7731F10BECE00F3324D /* Build configuration list for PBXNativeTarget "JUPiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DFCD7711F10BECE00F3324D /* Debug */,
+				4DFCD7721F10BECE00F3324D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

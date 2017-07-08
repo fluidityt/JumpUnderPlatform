@@ -10,6 +10,9 @@ import Cocoa
 import SpriteKit
 import GameplayKit
 
+class SKS: SKScene {
+
+}
 class ViewController: NSViewController {
 
     @IBOutlet var skView: SKView!
